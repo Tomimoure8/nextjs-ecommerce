@@ -1,10 +1,12 @@
+"use client";
+
 import { ShoppingCart } from "lucide-react"
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Image from "next/image"
 
 const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/product", label: "Productos" },
+    { href: "/productos", label: "Productos" },
     { href: "/contact", label: "Contacto" },
     { href: "/carrito", label: "Carrito", icon: <ShoppingCart className="w-6 h-6" /> },
 ];
