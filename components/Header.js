@@ -1,5 +1,5 @@
 import { ShoppingCart } from "lucide-react"
-import Link from "next/link"
+import { useRouter } from 'next/router';
 import Image from "next/image"
 
 const navLinks = [
@@ -10,20 +10,26 @@ const navLinks = [
 ];
 
 function Header() {
+    const router = useRouter();
+
+    const handleNavegacion = (href) => {
+        router.push(href);
+    };
+
     return (
         <header className="px-4 py-6 flex justify-between items-center bg-gradient-to-r from-green-400 via-purple-500 to-yellow-500 shadow-lg text-white">
             <h1 className="font-bold text-2xl tracking-wide">Comision 71810</h1>
             <nav className="flex gap-6">
-                <Link href="/">
+                <div onClick={() => handleNavegacion('/')} className="cursor-pointer">
                     <Image
                         src="/imagen-contacto_processed.jpg"
                         alt="imagen-logo"
                         width={100}
                         height={100}
                     />
-                </Link>
+                </div>
                 {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="hover:text-yellow-300 transition-colors duration-300 ease-in-out">
+                    <div key={link.href} onClick={() => handleNavegacion(link.href)} className="hover:text-yellow-300 transition-colors duration-300 ease-in-out cursor-pointer">
                         {link.icon ? (
                             <span className="relative">
                                 {link.icon}
@@ -34,10 +40,11 @@ function Header() {
                         ) : (
                             link.label
                         )}
-                    </Link>
+                    </div>
                 ))}
             </nav>
         </header>
     );
 }
-export default Header
+
+export default Header;
