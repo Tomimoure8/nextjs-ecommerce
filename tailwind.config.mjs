@@ -8,6 +8,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        paleturquoise: '#AFEEEE',
+        orange: '#FFA500',
+        dodgerblue: '#1E90FF',
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

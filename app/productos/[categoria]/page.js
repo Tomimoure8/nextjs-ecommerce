@@ -1,3 +1,9 @@
+export async function generateMetadata({params}) {
+    const { categoria } = params;
+    return {
+        title: `Productos de la categoria ${params.categoria} - ecommerce-platform`,
+    };
+}
 const Productos = ({ params }) => {
 
     console.log(params);

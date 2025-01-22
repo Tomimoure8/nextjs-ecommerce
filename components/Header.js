@@ -19,9 +19,8 @@ function Header() {
     };
 
     return (
-        <header className="px-4 py-6 flex justify-between items-center bg-gradient-to-r from-green-400 via-purple-500 to-yellow-500 shadow-lg text-white">
-            <h1 className="font-bold text-2xl tracking-wide">Comision 71810</h1>
-            <nav className="flex gap-6">
+        <header className="bg-teal-600 bg-gradient-to-r from-teal-300 text-white shadow-lg">
+            <nav className="container mx-auto flex justify-between items-center py-4">
                 <div onClick={() => handleNavegacion('/')} className="cursor-pointer">
                     <Image
                         src="/imagen-contacto_processed.jpg"
@@ -30,20 +29,14 @@ function Header() {
                         height={100}
                     />
                 </div>
-                {navLinks.map((link) => (
-                    <div key={link.href} onClick={() => handleNavegacion(link.href)} className="hover:text-yellow-300 transition-colors duration-300 ease-in-out cursor-pointer">
-                        {link.icon ? (
-                            <span className="relative">
-                                {link.icon}
-                                {link.label === "Carrito" && (
-                                    <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">3</span>
-                                )}
-                            </span>
-                        ) : (
-                            link.label
-                        )}
-                    </div>
-                ))}
+                <ul className="flex gap-6">
+                    {navLinks.map((link) => (
+                        <li key={link.href} onClick={() => handleNavegacion(link.href)} className="relative group cursor-pointer">
+                            <span className="relative z-10 text-orange-500">{link.icon ? link.icon : link.label}</span>
+                            <span className="absolute inset-0 bg-teal-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"></span>
+                        </li>
+                    ))}
+                </ul>
             </nav>
         </header>
     );
