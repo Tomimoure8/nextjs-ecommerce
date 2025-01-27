@@ -1,18 +1,17 @@
-export async function generateMetadata({params}) {
+import ProductosCategoriaCliente from '../../../components/products/ProductosCategoriaCliente';
+
+export async function generateMetadata({ params }) {
     const { categoria } = params;
     return {
-        title: `Productos de la categoria ${params.categoria} - ecommerce-platform`,
+        title: `Productos de la categoría ${categoria} - ecommerce-platform`,
     };
 }
-const Productos = ({ params }) => {
 
-    console.log(params);
-
+const ProductosCategoria = ({ params }) => {
+    const { categoria } = params;
     return (
-        <div>
-            <h1>Productos de la categoria {params.categoria}</h1>
-        </div>
+        <ProductosCategoriaCliente categoriaInicial={categoria} />
     );
-}
+};
 
-export default Productos;
+export default ProductosCategoria;
