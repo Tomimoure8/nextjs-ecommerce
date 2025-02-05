@@ -1,63 +1,41 @@
-import ProductCard from './ProductCard';
-import { mockData } from '@/data/mockData';
+import Image from "next/image";
+import Link from "next/link";
+import PropTypes from 'prop-types';
 
-const ProductList = async ({ categoria }) => {
-
-    const items = await fetch('/api/productos/${categoria}', { cache: 'no-store' }).then(res => res.json());
-    console.log(items);
+function ProductList({ productos }) {
     return (
-        <section className="container m-auto flex justify-center items-center gap-12 flex-wrap">
-            {items.map(item => <ProductCard key={item.slug} item={item} />)}
-        </section>
-    );
+        <>
+            {productos.map((producto) => {
+                return (
+                    <article className="p-2 shadow-md rounded-md relative aspect-[1/1.15] overflow-hidden group" key={producto.id}>
+                        <Image
+                            src={producto.image || "https://placehold.co/600x400?text=No+Image"}
+                            alt={`Thumbnail de ${producto.name}`}
+                            fill
+                            className="group-hover:scale-125 transition-all"
+                            onError={(e) => e.target.src = "https://placehold.co/600x400?text=Image+Not+Found"}
+                        />
+                        <div className="z-10 absolute bottom-0 bg-secondary/20 backdrop-blur-xl left-0 w-full p-2">
+                            <div className="flex justify-between">
+                                <h2 className="font-bold text-xl max-w-[180px] truncate">{producto.name}</h2>
+                                <p>$ {producto.price}</p>
+                            </div>
+                            <Link href={`/product/${producto.id}`} aria-label={`Ver más detalles de ${producto.name}`}>ver más</Link>
+                        </div>
+                    </article>
+                )
+            })}
+        </>
+    )
 }
 
+ProductList.propTypes = {
+    productos: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string,
+    })).isRequired,
+};
+
 export default ProductList;
-
-
-// import { useEffect, useState } from 'react';
-// import ProductCard from './ProductCard';
-
-// const ProductList = ({ categoria }) => {
-//     const [productos, setProductos] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-
-//     useEffect(() => {
-//         async function loadProductos() {
-//             try {
-//                 const res = await fetch('/api/productos', { cache: 'no-store' });
-//                 if (!res.ok) {
-//                     throw new Error('Failed to fetch productos');
-//                 }
-//                 const data = await res.json();
-//                 const items = categoria === 'todos' ? data : data.filter((item) => item.categoria === categoria);
-//                 setProductos(items);
-//             } catch (error) {
-//                 setError(error.message);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         }
-
-//         loadProductos();
-//     }, [categoria]);
-
-//     if (loading) {
-//         return <div>Cargando...</div>;
-//     }
-
-//     if (error) {
-//         return <div>Error: {error}</div>;
-//     }
-
-//     return (
-//         <section className="container m-auto flex justify-center items-center gap-12 flex-wrap">
-//             {productos.map((item) => (
-//                 <ProductCard key={item.id} producto={item} />
-//             ))}
-//         </section>
-//     );
-// };
-
-// export default ProductList;

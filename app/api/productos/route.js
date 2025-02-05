@@ -17,7 +17,8 @@ async function obtenerProductosPorCategoria(categoria) {
 }
 
 // Cambios: Función para manejar errores: Esta función maneja los errores y devuelve una respuesta JSON con un mensaje de error.
-function manejarError(mensaje) {
+function manejarError(mensaje, error) {
+    console.error(error);
     return NextResponse.json({
         message: mensaje,
         error: true,
@@ -55,7 +56,7 @@ export async function POST(req) {
             payload: null
         });
     } catch (error) {
-        return manejarError("Error al crear el producto");
+        return manejarError("Error al crear el producto"), error;
     }
 }
 

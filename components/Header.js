@@ -6,7 +6,7 @@ import Image from "next/image"
 
 const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/productos", label: "Productos" },
+    { href: "/products", label: "Productos" },
     { href: "/contact", label: "Contacto" },
     { href: "/carrito", label: "Carrito", icon: <ShoppingCart className="w-6 h-6" /> },
 ];
