@@ -1,6 +1,6 @@
-export async function getProducts(categoria) {
+export async function fetchProducts(category) {
     try {
-        const params = new URLSearchParams(categoria ? { categoria } : {});
+        const params = new URLSearchParams(category ? { category } : {});
         const url = `http://localhost:3000/api/products?${params.toString()}`;
 
         const response = await fetch(url);
@@ -8,12 +8,12 @@ export async function getProducts(categoria) {
             throw new Error('Network response was not ok');
         }
 
-        const { payload: products } = await response.json();
+        const { payload: products, message, error } = await response.json();
 
         return {
             payload: products,
-            message: "Se obtuvieron los productos",
-            error: false
+            message: message || "Se obtuvieron los productos",
+            error: error || false
         };
     } catch (error) {
         return {
