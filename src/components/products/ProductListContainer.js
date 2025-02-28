@@ -1,4 +1,4 @@
-import { getProducts } from "@/actions/getProducts";
+import { getProducts } from "@/actions/fetchProducts";
 import ProductList from "./ProductList";
 import PageTitle from "./PageTitle";
 

@@ -1,6 +1,8 @@
 import FooterContact from "@/components/FooterContact";
 import Header from "@/components/Header";
 import { Geist, Geist_Mono } from "next/font/google";
+import { UserAuthProvider } from "@/context/UserAuthContext";
+import { ShoppingCartProvider } from "@/context/ShoppingCartContext";
 
 import "./globals.css";
 
@@ -29,9 +31,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <FooterContact />
+        <UserAuthProvider>
+          <ShoppingCartProvider>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <FooterContact />
+          </ShoppingCartProvider>
+        </UserAuthProvider>
       </body>
     </html>
   );
