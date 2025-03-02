@@ -1,4 +1,3 @@
-import {migrateProducts} from '@/actions/migrateProducts'
 export default function home (){
     migrateProducts ()
     return(
