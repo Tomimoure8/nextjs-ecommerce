@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "../../src/components/ContactForm";
 
 export const metadata = {
     title: "Contacto - ecommerce-platform",

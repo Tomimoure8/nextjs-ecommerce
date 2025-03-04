@@ -1,4 +1,4 @@
-import PageTitle from "@/components/products/PageTitle";
+import PageTitle from "../../src/components/products/PageTitle";
 import Link from "next/link";
 
 export const metadata = {
@@ -9,9 +9,10 @@ export const metadata = {
 export default function ProductLayout({ children }) {
 
     const categorias = [
-        { id: 1, name: "Living" },
-        { id: 2, name: "Dormitorio" },
-    ]
+        { id: 1, name: "chargers" },
+        { id: 2, name: "accessories" },
+        { id: 3, name: "notebooks" },
+    ];
 
     return (
         <div className="flex flex-col md:flex-row gap-8">
@@ -19,11 +20,9 @@ export default function ProductLayout({ children }) {
                 <PageTitle>Filtros</PageTitle>
                 <div className="flex flex-col gap-4">
                     <Link href="/products">Todos</Link>
-                    {categorias.map((categoria) => {
-                        return (
-                            <Link key={categoria.id} href={`/products/${categoria.name}`}>{categoria.name}</Link>
-                        )
-                    })}
+                    {categorias.map((categoria) => (
+                        <Link key={categoria.id} href={`/products/${categoria.name}`}>{categoria.name}</Link>
+                    ))}
                 </div>
             </aside>
             <div className="grow">

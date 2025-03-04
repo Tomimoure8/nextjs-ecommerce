@@ -1,9 +1,9 @@
-import { getProducts } from "@/actions/fetchProducts";
+import { fetchProducts } from "../actions/fetchProducts";
 import ProductList from "./ProductList";
-import PageTitle from "./PageTitle";
+import PageTitle from "./products/PageTitle";
 
 async function ProductListContainer({ categoria }) {
-    const { payload: products, error, message } = await getProducts(categoria);
+    const { payload: products, error, message } = await fetchProducts(categoria);
 
     if (error) {
         return (

@@ -1,6 +1,6 @@
 "use client"
 
-import { useShoppingCart } from "@/context/ShoppingCartContext";
+import { useShoppingCart } from "../../src/context/ShoppingCartContext";
 import PropTypes from 'prop-types';
 import Button from "./Button";
 

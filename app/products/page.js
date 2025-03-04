@@ -1,5 +1,5 @@
-import PageTitle from "@/components/products/PageTitle";
-import ProductListSection from "@/components/products/ProductListSection";
+import PageTitle from "../../src/components/products/PageTitle";
+import ProductListSection from "../../src/components/products/ProductListSection";
 
 export default async function ProductPage() {
 

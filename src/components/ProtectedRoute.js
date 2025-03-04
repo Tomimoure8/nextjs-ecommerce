@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserAuth } from "@/context/UserAuthContext";
+import { useUserAuth } from "../../src/context/UserAuthContext";
 import { useRouter } from "next/navigation";
 
 export default function ProtectedRoute({ children }) {

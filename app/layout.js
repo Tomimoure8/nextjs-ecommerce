@@ -1,8 +1,8 @@
-import FooterContact from "@/components/FooterContact";
-import Header from "@/components/Header";
+import FooterContact from "../src/components/FooterContact";
+import Header from "../src/components/Header";
 import { Geist, Geist_Mono } from "next/font/google";
-import { UserAuthProvider } from "@/context/UserAuthContext";
-import { ShoppingCartProvider } from "@/context/ShoppingCartContext";
+import { UserAuthProvider } from "../src/context/UserAuthContext";
+import { ShoppingCartProvider } from "../src/context/ShoppingCartContext";
 
 import "./globals.css";
 

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProductsLoader from "./ProductsLoader";
-import ProductListContainer from "./ProductListContainer";
+import ProductListContainer from "../ProductListContainer";
 
 function ProductListSection({ categoria }) {
     return (
