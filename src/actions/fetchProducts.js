@@ -11,7 +11,10 @@ export async function fetchProducts(category) {
         const { payload: products, message, error } = await response.json();
 
         return {
-            payload: products,
+            payload: products.map(product => ({
+                ...product,
+                image: product.image || "https://placehold.co/600x400?text=No+Image"
+            })),
             message: message || "Se obtuvieron los productos",
             error: error || false
         };

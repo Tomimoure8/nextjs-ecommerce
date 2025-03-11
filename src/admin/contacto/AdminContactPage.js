@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useRouter } from "next/navigation";
-import { db } from "@/lib/firebase";
+import { db } from "../../lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import ProtectedRoute from "../../components/ProtectedRoute";
 
 const AdminContactPage = () => {
     const { currentUser } = useUserAuth();

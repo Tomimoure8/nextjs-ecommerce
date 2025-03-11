@@ -1,7 +1,6 @@
-import { getProductByIdFromServer } from "@/actions/getProductByIdFromServer";
-import { getProductsFromServer } from "@/actions/getProductsFromServer";
-import AddToCartButton from "@/components/products/AddToCartButton";;
-import PageTitle from "../../../src/components/products/PageTitle";
+import { getProductByIdFromServer } from "../../actions/getProductByIdFromServer";
+import AddToCartButton from "../../components/products/AddToCartButton";
+import PageTitle from "../../components/products/PageTitle";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -17,15 +16,14 @@ export const generateMetadata = async ({ params }) => {
 
 
 export const generateStaticParams = async () => {
-    const params = await getProductsFromServer()
-    return params.payload.map((product) => ({ id: product.id }));
+    const { payload: products } = await (await fetch("http://localhost:3000/api/products")).json();
+    return products.map((product) => ({ id: product.id }));
 }
 
 
 export default async function ProductDetailsPage({ params }) {
-
     const { id } = await params
-    const { payload: producto, error } = await getProductByIdFromServer(id)
+    const { payload: producto, error, message } = await getProductByIdFromServer(id);
 
     if (error) {
         return (

@@ -13,7 +13,19 @@ const nextConfig = {
                 hostname: 'acdn.mitiendanube.com',
                 port: '',
                 pathname: '/**',
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'firebasestorage.googleapis.com',
+                port: '',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'snpi.dell.com',
+                port: '',
+                pathname: '/**',
+            },
         ],
     }
 };
