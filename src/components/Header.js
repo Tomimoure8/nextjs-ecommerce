@@ -26,7 +26,7 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-gradient-to-r from-pink-400 via-yellow-300 to-blue-500 text-white py-4 shadow-lg">
+        <header className="bg-gradient-to-r from-pink-400 via-yellow-300 to-blue-500 text-white py-6 shadow-lg">
             <div className="container mx-auto flex justify-between items-center px-6">
                 <nav className="flex items-center gap-6 text-lg font-semibold">
                     <Link href="/" className="hover:text-blue-500 transition">🏠 Inicio</Link>
