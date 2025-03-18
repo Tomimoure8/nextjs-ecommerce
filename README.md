@@ -20,7 +20,8 @@ CartContext para manejar el carrito de compras.
 El archivo .gitignore excluye node_modules, .env y otros archivos sensibles.
 Asegúrese de configurar las variables de entorno antes de ejecutar el proyecto si desea correrlo localmente.
 Desarrollado por
-**Tomás Moure**
+**Tomás Moure** 
+Y
 **Cristhian Matias Amén**
 ¡Gracias por revisar nuestro proyecto!
 ¡Esperamos que cumpla con sus expectativas! 😄
